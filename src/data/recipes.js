@@ -923,27 +923,64 @@ export const recipes = [
     },
     {
         "id": 17,
-        "name": "Tarte aux fruits rouges",
-        "image": "https://assets.afcdn.com/recipe/20160816/56528_w1000h1500c1cx2000cy3000.webp",
-        "dish_type": "Dessert",
-        "servings": 6,
-        "prep_time": "20 minutes",
-        "cook_time": "1 heure",
+        "name": "Osso bucco de veau",
+        "image": "https://assets.afcdn.com/recipe/20130205/63559_w1000h1183c1cx966cy1491cxb1920cyb2272.webp",
+        "dish_type": "Plat principal",
+        "servings": 4,
+        "prep_time": 20,
+        "cook_time": 45,
         "ingredients": [
             {
-                "name": "",
+                "name": "Huile",
+                "quantity": "10cl"
+            },
+            {
+                "name": "Tomates concassées",
+                "quantity": "400g"
+            },
+            {
+                "name": "Carotte",
+                "quantity": "200g"
+            },
+            {
+                "name": "Oignon",
+                "quantity": "100g"
+            },
+            {
+                "name": "Farine",
                 "quantity": ""
             },
             {
-                "name": "",
+                "name": "Poivre",
                 "quantity": ""
+            },
+            {
+                "name": "Sel",
+                "quantity": ""
+            },
+            {
+                "name": "Jarret de veau",
+                "quantity": "4 tranches de 200g"
+            },
+            {
+                "name": "Ail",
+                "quantity": "3 gousses"
+            },
+            {
+                "name": "Vin blanc sec",
+                "quantity": "20cl"
+            },
+            {
+                "name": "Bouquet garni",
+                "quantity": "1"
             }
         ],
         "instructions": [
-            "",
-            ""
+            "Fariner la viande, tapoter pour retirer l'excédent. Les faire dorer sur toutes les faces dans une cocotte-minute avec un fond d'huile.",
+            "Peler et couper les carottes en rondelles épaisses, émincer les oignons, hacher l'ail. Les ajouter dans la cocotte, ainsi que les tomates et le vin blanc. Saler, poivrer, ajouter le bouquet garni et fermer la cocotte.",
+            "Laisser cuire 45 min à partir de la mise en rotation de la soupape, à feu doux."
         ],
-        "created_at": "2022-05-24"
+        "created_at": "2022-10-29"
     },
     {
         "id": 18,
@@ -1278,27 +1315,59 @@ export const recipes = [
     },
     {
         "id": 23,
-        "name": "Tarte aux fruits rouges",
-        "image": "https://assets.afcdn.com/recipe/20160816/56528_w1000h1500c1cx2000cy3000.webp",
-        "dish_type": "Dessert",
+        "name": "Gratin de courgette",
+        "image": "https://assets.afcdn.com/recipe/20160322/47917_w1000h667c1cx2808cy1872.webp",
+        "dish_type": "Plat principal",
         "servings": 6,
-        "prep_time": "20 minutes",
-        "cook_time": "1 heure",
+        "prep_time": 15,
+        "cook_time": 60,
         "ingredients": [
             {
-                "name": "",
+                "name": "Courgette",
+                "quantity": "2"
+            },
+            {
+                "name": "Crème fraîche",
+                "quantity": "4 c.à.s"
+            },
+            {
+                "name": "Moutarde",
+                "quantity": "1 c.à.c"
+            },
+            {
+                "name": "Gruyère râpé",
                 "quantity": ""
             },
             {
-                "name": "",
+                "name": "Sel",
                 "quantity": ""
+            },
+            {
+                "name": "Ail",
+                "quantity": ""
+            },
+            {
+                "name": "Echalote",
+                "quantity": ""
+            },
+            {
+                "name": "Ciboulette",
+                "quantity": ""
+            },
+            {
+                "name": "Jambon",
+                "quantity": "50g en dés"
             }
         ],
         "instructions": [
-            "",
-            ""
+            "Laver les courgettes et les couper en dés sans les éplucher.",
+            "Les faire revenir dans une poêle avec un petit peu de beurre en rajoutant du sel et l'ail pendant 5 min environ.",
+            "Dans un bol, mélanger la crème avec la moutarde et la ciboulette.",
+            "Mettre la moitié des courgettes dans un plat et mettre les dés de volaille dessus. Mettre le reste des courgettes, verser la crème sur le tout et mettre du gruyère râpé.",
+            "Enfourner à 180°, thermostat 6, pour 1 h.",
+            "Pendant les 30 premières minutes de cuisson, mettre un papier d'aluminium sur votre plat afin d'éviter que le dessus ne brûle, et l'enlever pendant le temps restant."
         ],
-        "created_at": "2022-05-24"
+        "created_at": "2022-08-21"
     },
     {
         "id": 24,
@@ -1536,27 +1605,73 @@ export const recipes = [
     },
     {
         "id": 28,
-        "name": "Tarte aux fruits rouges",
-        "image": "https://assets.afcdn.com/recipe/20160816/56528_w1000h1500c1cx2000cy3000.webp",
-        "dish_type": "Dessert",
-        "servings": 6,
-        "prep_time": "20 minutes",
-        "cook_time": "1 heure",
+        "name": "Hachis Parmentier",
+        "image": "https://assets.afcdn.com/recipe/20221012/136013_w1000h1403c1cx727cy1355cxb1462cyb2051.webp",
+        "dish_type": "Plat principal",
+        "servings": 4,
+        "prep_time": 25,
+        "cook_time": 20,
         "ingredients": [
             {
-                "name": "",
+                "name": "Purée",
+                "quantity": "300g"
+            },
+            {
+                "name": "Oignon",
+                "quantity": "2"
+            },
+            {
+                "name": "Tomates",
+                "quantity": "2"
+            },
+            {
+                "name": "Farine",
+                "quantity": "1 c.à.s"
+            },
+            {
+                "name": "Parmesan",
+                "quantity": "30g"
+            },
+            {
+                "name": "Beurre",
+                "quantity": "30g"
+            },
+            {
+                "name": "Fromage râpé",
+                "quantity": "50g"
+            },
+            {
+                "name": "Sel",
                 "quantity": ""
             },
             {
-                "name": "",
+                "name": "Poivre",
                 "quantity": ""
+            },
+            {
+                "name": "Viande hachée",
+                "quantity": "400g"
+            },
+            {
+                "name": "Ail",
+                "quantity": "2 gousses"
+            },
+            {
+                "name": "Herbes de provence",
+                "quantity": "1 pincée"
+            },
+            {
+                "name": "Jaune d'oeuf",
+                "quantity": "1"
             }
         ],
         "instructions": [
-            "",
-            ""
+            "Hacher l'oignon et l'ail. Les faire revenir dans le beurre jusqu'à ce qu'ils soient tendres.",
+            "Ajouter les tomates coupées en dés, la viande hachée, la farine, du sel, du poivre et les herbes de Provence.",
+            "Quand tout est cuit, couper le feu et ajouter le jaune d'oeuf et un peu de parmesan. Bien mélanger.",
+            "Préchauffer le four à 200°C (thermostat 6-7). Etaler au fond du plat à gratin. Préparer la purée. L'étaler au dessus de la viande. Saupoudrer de fromage râpé et faire gratiner."
         ],
-        "created_at": "2022-05-24"
+        "created_at": "2023-02-05"
     },
     {
         "id": 29,
@@ -1664,7 +1779,7 @@ export const recipes = [
             "Pour la décoration : quelques amandes effilées passées à la poêle, ou un soupçon de poudre d'amandes, ou ce que vous voulez selon l'inspiration.",
             "Servir de suite, quand le chocolat est encore fumant."
         ],
-        "created_at": "2022-05-24"
+        "created_at": "2023-05-14"
     },
     {
         "id": 31,
@@ -1706,7 +1821,7 @@ export const recipes = [
             "Faire un verre de sirop concentré à l'eau. Alterner les couches biscuits trempés dans le sirop, crème jusqu'à épuisement.",
             "Laisser une nuit au frigo."
         ],
-        "created_at": "2022-05-24"
+        "created_at": "2023-04-17"
     },
     {
         "id": 32,
@@ -1853,4 +1968,4 @@ export const recipes = [
         "created_at": "2023-06-14"
     }
 
-];
+]
