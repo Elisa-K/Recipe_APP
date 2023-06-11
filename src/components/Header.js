@@ -1,10 +1,12 @@
 import { Link } from 'react-router-dom'
+import Logo from '../assets/logo.png'
 
 export default function Header() {
     return (
         <nav className="navbar navbar-expand-lg flex-lg-column">
 
-            <h1 className='navbar-brand'>Recipe App</h1>
+            {/* <h1 className='navbar-brand'>Recipe App</h1> */}
+            <img src={Logo} className='navbar-brand' alt="Recipe App" height="100" />
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
             </button>
@@ -29,7 +31,7 @@ export default function Header() {
                         </ul>
                     </li>
                     <li className='nav-item'>
-                        <Link to="/search" className='nav-link'><i class="bi bi-search"></i> Recherche</Link>
+                        <Link to="/search" className='nav-link'><i className="bi bi-search"></i> Recherche</Link>
                     </li>
                 </ul>
             </div>
