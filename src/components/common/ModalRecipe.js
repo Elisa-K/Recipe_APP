@@ -32,7 +32,7 @@ export default function ModalRecipe({ recipe }) {
 
                         <div className="recipe-instructions mt-4">
                             <h3>Préparation</h3>
-                            <table class="table table-borderless">
+                            <table className="table table-borderless">
                                 <tbody>
                                     {recipe.instructions.map((instruction, index) => (
                                         <tr key={index}>
