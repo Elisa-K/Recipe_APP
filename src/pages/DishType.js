@@ -3,7 +3,7 @@ import { useFetch } from "../utils/hooks/useFetch"
 import { useEffect, useState } from "react";
 import { findByType } from "../utils/functions/filter"
 import Card from '../components/common/Card'
-import Pagination from "../components/common/Pagination";
+// import Pagination from "../components/common/Pagination";
 
 export default function DishType() {
     let { dish } = useParams();
