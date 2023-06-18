@@ -11,10 +11,12 @@ export function useFetch() {
             try {
                 const response = await fetch('/data/recipes.json')
                 const data = await response.json()
-                data.recipes.sort((a, b) => {
+                data?.recipes.sort((a, b) => {
                     return new Date(b.created_at) - new Date(a.created_at)
                 })
+
                 setData(data)
+
             } catch (err) {
                 console.log(err)
                 setError(true)

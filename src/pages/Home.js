@@ -15,7 +15,6 @@ export default function Home() {
                 <span>Loading</span>
             ) : (
                 <div className="row">
-
                     {recipes && recipes.slice(0, 10).map((recipe) => (
                         <div className="col-4 p-4" key={recipe.id}>
                             <Card recipe={recipe} />
