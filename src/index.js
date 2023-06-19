@@ -12,17 +12,17 @@ import 'bootstrap/dist/js/bootstrap.min.js'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  // <React.StrictMode>
-  <Router>
-    <Layout>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/type/:dish" element={<DishType />} />
-        <Route path="/search" element={<Search />} />
-        <Route path="*" />
-      </Routes>
-    </Layout>
-  </Router>
-  // </React.StrictMode>
+  <React.StrictMode>
+    <Router>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/type/:dish" element={<DishType />} />
+          <Route path="/search" element={<Search />} />
+          <Route path="*" />
+        </Routes>
+      </Layout>
+    </Router>
+  </React.StrictMode>
 );
 
