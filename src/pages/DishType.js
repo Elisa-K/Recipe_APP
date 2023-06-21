@@ -12,7 +12,10 @@ export default function DishType() {
     const [currentPage, setCurrentPage] = useState(1)
     const [paginatedData, setPaginatedData] = useState([])
     const [pageCount, setPageCount] = useState(0)
-    const itemsPerPage = 3
+    const [maxPageLimit, setMaxPageLimit] = useState(2)
+    const [minPageLimit, setMinPageLimit] = useState(0)
+    const itemsPerPage = 6
+    const pageNumberLimit = 2
 
     useEffect(() => {
         if (!isLoading) {
@@ -30,21 +33,26 @@ export default function DishType() {
         setPageCount(nbPage)
     }, [recipes, currentPage])
 
-
+    const paginate = (pageNumber) => {
+        setCurrentPage(pageNumber)
+    }
 
     const nextPage = () => {
-        console.log(currentPage)
-        if (currentPage !== Math.ceil(recipes.length / itemsPerPage)) {
-            setCurrentPage(currentPage + 1)
-        }
+        if (currentPage + 1 > maxPageLimit) {
+            setMaxPageLimit(maxPageLimit + pageNumberLimit)
+            setMinPageLimit(minPageLimit + pageNumberLimit)
 
+        }
+        setCurrentPage(prev => prev + 1)
     };
 
     const previousPage = () => {
-        if (currentPage !== 1) {
-            setCurrentPage(currentPage - 1)
-        }
+        if ((currentPage - 1) % pageNumberLimit === 0) {
+            setMaxPageLimit(maxPageLimit - pageNumberLimit)
+            setMinPageLimit(minPageLimit - pageNumberLimit)
 
+        }
+        setCurrentPage(prev => prev - 1)
     };
 
     const MAPPED_TITLE = {
@@ -73,7 +81,11 @@ export default function DishType() {
 
                     <Pagination
                         currentPage={currentPage}
+                        itemsPerPage={itemsPerPage}
                         pageCount={pageCount}
+                        minPageLimit={minPageLimit}
+                        maxPageLimit={maxPageLimit}
+                        paginate={paginate}
                         onNextPage={nextPage}
                         onPreviousPage={previousPage}
                     />
