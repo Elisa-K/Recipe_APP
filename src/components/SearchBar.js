@@ -3,7 +3,6 @@ import '../styles/search.css'
 export default function SearchBar({
   keyword,
   onChange,
-  onFocusIn,
   onClickSuggestion,
   showSuggestions,
   optionsTitle,
@@ -27,7 +26,6 @@ export default function SearchBar({
             key="search-bar"
             value={keyword}
             onChange={(e) => onChange(e.target.value)}
-            onFocus={onFocusIn}
           />
 
           {showSuggestions && (

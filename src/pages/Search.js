@@ -30,11 +30,12 @@ export default function Search() {
     }
   }, [isLoading])
 
-  const handleFocusIn = () => {
-    setShowSuggestions(true)
-  }
-
   const handleChange = (keyword) => {
+    if (keyword.length > 0) {
+      setShowSuggestions(true)
+    } else {
+      setShowSuggestions(false)
+    }
     setKeyword(keyword)
     filterData(keyword)
   }
@@ -70,7 +71,6 @@ export default function Search() {
         keyword={keyword}
         optionsTitle={optionsTitle}
         optionsIngredient={optionsIngredient}
-        onFocusIn={handleFocusIn}
         onChange={handleChange}
         onClickSuggestion={handleSuggestionClick}
         showSuggestions={showSuggestions}
