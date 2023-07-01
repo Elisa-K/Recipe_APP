@@ -1,9 +1,10 @@
 import { useFetch } from '../utils/hooks/useFetch'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo, useCallback } from 'react'
 import { filterResultByType } from '../utils/functions/filter'
 import SearchBar from '../components/SearchBar'
 import Card from '../components/common/Card'
 import FilterCheckbox from '../components/common/FilterCheckbox'
+import Pagination from '../components/common/Pagination'
 
 export default function Search() {
   const { data, isLoading, error } = useFetch()
@@ -14,7 +15,15 @@ export default function Search() {
   const [results, setResults] = useState([])
   const [showSuggestions, setShowSuggestions] = useState(false)
   const [filterTags, setFilterTags] = useState([])
-  const [sortOption, setSortOption] = useState('dateAsc')
+  const [sortOption, setSortOption] = useState('dateDesc')
+  // const [filteredData, setFilteredData] = useState([])
+  const [currentPage, setCurrentPage] = useState(1)
+  const [paginatedData, setPaginatedData] = useState([])
+  const [pageCount, setPageCount] = useState(0)
+  const [maxPageLimit, setMaxPageLimit] = useState(2)
+  const [minPageLimit, setMinPageLimit] = useState(0)
+  const itemsPerPage = 6
+  const pageNumberLimit = 2
 
   useEffect(() => {
     if (!isLoading) {
@@ -34,6 +43,59 @@ export default function Search() {
       setResults(recipes)
     }
   }, [isLoading])
+
+  // Trie des résultats
+  const sortMethods = {
+    dateAsc: {
+      method: (a, b) => new Date(a.created_at) - new Date(b.created_at),
+    },
+    dateDesc: {
+      method: (a, b) => new Date(b.created_at) - new Date(a.created_at),
+    },
+    prepTimeAsc: {
+      method: (a, b) => a.prep_time + a.cook_time - (b.prep_time + b.cook_time),
+    },
+  }
+
+  // Filtre des résultats
+  const filteredData = useMemo(
+    () =>
+      filterResultByType(
+        results.sort(sortMethods[sortOption].method),
+        filterTags
+      ),
+    [filterTags, results, sortOption]
+  )
+
+  useEffect(() => {
+    const firstIndex = (currentPage - 1) * itemsPerPage
+    const lastIndex = firstIndex + itemsPerPage
+    const currentData = filteredData.slice(firstIndex, lastIndex)
+    const nbPage = Math.ceil(filteredData.length / itemsPerPage)
+    setPaginatedData(currentData)
+    setPageCount(nbPage)
+  }, [filteredData, currentPage])
+
+  // Pagination
+  const paginate = (pageNumber) => {
+    setCurrentPage(pageNumber)
+  }
+
+  const nextPage = () => {
+    if (currentPage + 1 > maxPageLimit) {
+      setMaxPageLimit(maxPageLimit + pageNumberLimit)
+      setMinPageLimit(minPageLimit + pageNumberLimit)
+    }
+    setCurrentPage((prev) => prev + 1)
+  }
+
+  const previousPage = () => {
+    if ((currentPage - 1) % pageNumberLimit === 0) {
+      setMaxPageLimit(maxPageLimit - pageNumberLimit)
+      setMinPageLimit(minPageLimit - pageNumberLimit)
+    }
+    setCurrentPage((prev) => prev - 1)
+  }
 
   // Barre de recherche
   const handleChange = (keyword) => {
@@ -65,6 +127,7 @@ export default function Search() {
         )
       })
       setResults(filterData)
+      setCurrentPage(1)
     }
   }
 
@@ -77,22 +140,8 @@ export default function Search() {
         filterTags.filter((filterTag) => filterTag !== event.target.value)
       )
     }
+    setCurrentPage(1)
   }
-
-  // Filtrage des résultats de recherche
-  const filteredData = filterResultByType(results, filterTags)
-
-  // Triage des résultats
-  results.sort((a, b) => {
-    if (sortOption === 'dateAsc') {
-      return new Date(a.created_at) - new Date(b.created_at)
-    } else if (sortOption === 'dateDesc') {
-      return new Date(b.created_at) - new Date(a.created_at)
-    } else if (sortOption === 'prepTimeAsc') {
-      return a.prep_time + a.cook_time - (b.prep_time + b.cook_time)
-    }
-    return 0
-  })
 
   if (error) {
     return <span>Erreur</span>
@@ -134,8 +183,8 @@ export default function Search() {
             value={sortOption}
             onChange={(e) => setSortOption(e.target.value)}
           >
-            <option value="dateAsc">Recettes les plus récentes</option>
-            <option value="dateDesc">Recettes les plus anciennes</option>
+            <option value="dateDesc">Recettes les plus récentes</option>
+            <option value="dateAsc">Recettes les plus anciennes</option>
             <option value="prepTimeAsc">Recettes les plus rapides</option>
           </select>
         </div>
@@ -153,11 +202,21 @@ export default function Search() {
                   }`}
                 </span>
               </div>
-              {filteredData.map((recipe) => (
+              {paginatedData.map((recipe) => (
                 <div className="col-4 p-4" key={recipe.id}>
                   <Card recipe={recipe} />
                 </div>
               ))}
+              <Pagination
+                currentPage={currentPage}
+                itemsPerPage={itemsPerPage}
+                pageCount={pageCount}
+                minPageLimit={minPageLimit}
+                maxPageLimit={maxPageLimit}
+                paginate={paginate}
+                onNextPage={nextPage}
+                onPreviousPage={previousPage}
+              />
             </div>
           ) : (
             <div className="row m-3">

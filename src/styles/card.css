@@ -6,3 +6,7 @@
 .card-recipe:hover {
     transform: scale(1.05);
 }
+
+.created-at {
+    font-size: 0.7rem;
+}
