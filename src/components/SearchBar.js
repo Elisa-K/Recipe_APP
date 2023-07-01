@@ -22,7 +22,7 @@ export default function SearchBar({
           <input
             type="text"
             className="form-control"
-            placeholder={'Recherche par type ou par ingrédient'}
+            placeholder={'Recherche par titre ou par ingrédient'}
             key="search-bar"
             value={keyword}
             onChange={(e) => onChange(e.target.value)}
