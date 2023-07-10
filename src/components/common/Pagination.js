@@ -2,7 +2,6 @@ import '../../styles/pagination.css'
 
 export default function Pagination({
   currentPage,
-  itemsPerPage,
   pageCount,
   minPageLimit,
   maxPageLimit,
@@ -23,6 +22,7 @@ export default function Pagination({
       </li>
     )
   }
+
   let pageDecrementEllipses = null
   if (minPageLimit >= 1) {
     pageDecrementEllipses = (
@@ -31,6 +31,7 @@ export default function Pagination({
       </li>
     )
   }
+
   return (
     <div>
       <nav aria-label="Pagination">

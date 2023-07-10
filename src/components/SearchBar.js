@@ -1,5 +1,5 @@
 import '../styles/search.css'
-
+import { useRef, useEffect } from 'react'
 export default function SearchBar({
   keyword,
   onChange,
@@ -7,7 +7,9 @@ export default function SearchBar({
   showSuggestions,
   optionsTitle,
   optionsIngredient,
+  onClickOutside,
 }) {
+  const ref = useRef(null)
   const suggestionsTitle = optionsTitle.filter((option) =>
     option.toLowerCase().includes(keyword.toLowerCase())
   )
@@ -15,10 +17,19 @@ export default function SearchBar({
     option.toLowerCase().includes(keyword.toLowerCase())
   )
 
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (ref.current && !ref.current.contains(event.target)) {
+        onClickOutside()
+      }
+    }
+    document.addEventListener('click', handleClickOutside, true)
+  }, [])
+
   return (
     <div className="row">
       <div className="col-8 m-auto">
-        <div className="search-bar">
+        <div ref={ref} className="search-bar">
           <input
             type="text"
             className="form-control"

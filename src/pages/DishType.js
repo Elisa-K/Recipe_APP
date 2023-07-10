@@ -1,98 +1,42 @@
-import { useParams } from "react-router-dom";
-import { useFetch } from "../utils/hooks/useFetch"
-import { useEffect, useState } from "react";
-import { findByType } from "../utils/functions/filter"
-import Card from '../components/common/Card'
-import Pagination from "../components/common/Pagination";
+import { useParams } from 'react-router-dom'
+import { useFetch } from '../utils/hooks/useFetch'
+import { useEffect, useState } from 'react'
+import { findByType } from '../utils/functions/filter'
+import PaginatedData from '../components/PaginatedData'
 
 export default function DishType() {
-    let { dish } = useParams();
-    const { data, isLoading, error } = useFetch()
-    const [recipes, setRecipes] = useState([])
-    const [currentPage, setCurrentPage] = useState(1)
-    const [paginatedData, setPaginatedData] = useState([])
-    const [pageCount, setPageCount] = useState(0)
-    const [maxPageLimit, setMaxPageLimit] = useState(2)
-    const [minPageLimit, setMinPageLimit] = useState(0)
-    const itemsPerPage = 6
-    const pageNumberLimit = 2
+  let { dish } = useParams()
+  const { data, isLoading, error } = useFetch()
+  const [recipes, setRecipes] = useState([])
 
-    useEffect(() => {
-        if (!isLoading) {
-            setRecipes(findByType(data.recipes, dish))
-            setCurrentPage(1)
-        }
-    }, [isLoading, dish])
+  const itemsPerPage = 6
 
-    useEffect(() => {
-        const firstIndex = (currentPage - 1) * itemsPerPage
-        const lastIndex = firstIndex + itemsPerPage
-        const currentData = recipes.slice(firstIndex, lastIndex)
-        const nbPage = Math.ceil(recipes.length / itemsPerPage)
-        setPaginatedData(currentData)
-        setPageCount(nbPage)
-    }, [recipes, currentPage])
-
-    const paginate = (pageNumber) => {
-        setCurrentPage(pageNumber)
+  useEffect(() => {
+    if (!isLoading) {
+      setRecipes(findByType(data.recipes, dish))
     }
+  }, [isLoading, dish])
 
-    const nextPage = () => {
-        if (currentPage + 1 > maxPageLimit) {
-            setMaxPageLimit(maxPageLimit + pageNumberLimit)
-            setMinPageLimit(minPageLimit + pageNumberLimit)
+  const MAPPED_TITLE = {
+    entree: 'Entrée',
+    platprincipal: 'Plat principal',
+    dessert: 'Dessert',
+  }
 
-        }
-        setCurrentPage(prev => prev + 1)
-    };
+  if (error) {
+    return <span>Erreur</span>
+  }
 
-    const previousPage = () => {
-        if ((currentPage - 1) % pageNumberLimit === 0) {
-            setMaxPageLimit(maxPageLimit - pageNumberLimit)
-            setMinPageLimit(minPageLimit - pageNumberLimit)
-
-        }
-        setCurrentPage(prev => prev - 1)
-    };
-
-    const MAPPED_TITLE = {
-        'entree': 'Entrée',
-        'platprincipal': 'Plat principal',
-        'dessert': 'Dessert'
-    }
-
-    if (error) {
-        return <span>Erreur</span>
-    }
-
-    return (
-        <div>
-            <h1 className="text-center">{(dish && MAPPED_TITLE[dish]) || null}</h1>
-            {isLoading ? (
-                <span>Loading</span>
-            ) : (
-                <div className="row">
-
-                    {paginatedData && paginatedData.map((recipe) => (
-                        <div className="col-4 p-4" key={recipe.id}>
-                            <Card recipe={recipe} />
-                        </div>
-                    ))}
-
-                    <Pagination
-                        currentPage={currentPage}
-                        itemsPerPage={itemsPerPage}
-                        pageCount={pageCount}
-                        minPageLimit={minPageLimit}
-                        maxPageLimit={maxPageLimit}
-                        paginate={paginate}
-                        onNextPage={nextPage}
-                        onPreviousPage={previousPage}
-                    />
-                </div>
-            )}
-
-        </div>
-
-    )
+  return (
+    <div>
+      <h1 className="text-center">{(dish && MAPPED_TITLE[dish]) || null}</h1>
+      {isLoading ? (
+        <span>Loading</span>
+      ) : (
+        recipes.length > 0 && (
+          <PaginatedData data={recipes} itemsPerPage={itemsPerPage} />
+        )
+      )}
+    </div>
+  )
 }
