@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Recipe_APP/static/css/main.0c5236ce.css",
+    "main.js": "/Recipe_APP/static/js/main.0597949e.js",
+    "static/media/bootstrap-icons.woff?": "/Recipe_APP/static/media/bootstrap-icons.4753c5ba57962b4d7bf8.woff",
+    "static/media/bootstrap-icons.woff2?": "/Recipe_APP/static/media/bootstrap-icons.6d63d0501e5ed7b79dab.woff2",
+    "index.html": "/Recipe_APP/index.html",
+    "main.0c5236ce.css.map": "/Recipe_APP/static/css/main.0c5236ce.css.map",
+    "main.0597949e.js.map": "/Recipe_APP/static/js/main.0597949e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0c5236ce.css",
+    "static/js/main.0597949e.js"
+  ]
+}
