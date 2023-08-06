@@ -1,0 +1,12 @@
+.card-recipe {
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.card-recipe:hover {
+    transform: scale(1.05);
+}
+
+.created-at {
+    font-size: 0.7rem;
+}

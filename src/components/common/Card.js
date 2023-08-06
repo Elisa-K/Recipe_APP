@@ -1,0 +1,48 @@
+import ModalRecipe from './ModalRecipe'
+import '../../styles/card.css'
+
+export default function Card({ recipe }) {
+  return (
+    <>
+      <div
+        className="card card-recipe m-2"
+        data-bs-toggle="modal"
+        data-bs-target={`#modalRecipe-${recipe.id}`}
+      >
+        <img
+          className="card-img-top object-fit-cover"
+          src={recipe.image}
+          alt={recipe.title}
+          height="200"
+        />
+        <div className="card-body">
+          <h5 className="card-title">{recipe.name}</h5>
+          <div className="card-text">
+            <div>
+              <span className="badge text-bg-dark">{recipe.dish_type}</span>
+            </div>
+            <div>
+              <span className="badge text-bg-light me-2">
+                <i className="bi bi-person-fill"></i>
+                {recipe.servings} pers.
+              </span>
+              <span className="badge text-bg-light me-2">
+                <i className="bi bi-hourglass-split"></i>
+                {recipe.prep_time} min
+              </span>
+              <span className="badge text-bg-light ">
+                <i className="bi bi-thermometer-half"></i>
+                {recipe.cook_time} min
+              </span>
+            </div>
+            <span className="created-at float-end text-body-secondary font-monospace mt-2">
+              ajouté le{' '}
+              {new Date(recipe.created_at).toLocaleDateString('fr-FR')}
+            </span>
+          </div>
+        </div>
+      </div>
+      <ModalRecipe recipe={recipe} />
+    </>
+  )
+}
