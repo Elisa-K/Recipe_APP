@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/recipe_app/static/css/main.e176fd90.css",
-    "main.js": "/recipe_app/static/js/main.162b4a15.js",
-    "static/media/bootstrap-icons.woff?": "/recipe_app/static/media/bootstrap-icons.4753c5ba57962b4d7bf8.woff",
-    "static/media/bootstrap-icons.woff2?": "/recipe_app/static/media/bootstrap-icons.6d63d0501e5ed7b79dab.woff2",
-    "index.html": "/recipe_app/index.html",
-    "main.e176fd90.css.map": "/recipe_app/static/css/main.e176fd90.css.map",
-    "main.162b4a15.js.map": "/recipe_app/static/js/main.162b4a15.js.map"
+    "main.css": "/Recipe_APP/static/css/main.0c5236ce.css",
+    "main.js": "/Recipe_APP/static/js/main.577822c7.js",
+    "static/media/bootstrap-icons.woff?": "/Recipe_APP/static/media/bootstrap-icons.4753c5ba57962b4d7bf8.woff",
+    "static/media/bootstrap-icons.woff2?": "/Recipe_APP/static/media/bootstrap-icons.6d63d0501e5ed7b79dab.woff2",
+    "index.html": "/Recipe_APP/index.html",
+    "main.0c5236ce.css.map": "/Recipe_APP/static/css/main.0c5236ce.css.map",
+    "main.577822c7.js.map": "/Recipe_APP/static/js/main.577822c7.js.map"
   },
   "entrypoints": [
-    "static/css/main.e176fd90.css",
-    "static/js/main.162b4a15.js"
+    "static/css/main.0c5236ce.css",
+    "static/js/main.577822c7.js"
   ]
 }
