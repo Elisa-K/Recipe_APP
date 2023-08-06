@@ -10,7 +10,7 @@ export function useFetch() {
     async function fetchData() {
       try {
         const response = await fetch(
-          'https://elisa-k.github.io/Recipe_APP/data/recipes.json'
+          process.env.PUBLIC_URL + '/data/recipes.json'
         )
         const data = await response.json()
         data?.recipes.sort((a, b) => {
