@@ -9,7 +9,9 @@ export function useFetch() {
     setLoading(true)
     async function fetchData() {
       try {
-        const response = await fetch('/data/recipes.json')
+        const response = await fetch(
+          'https://elisa-k.github.io/Recipe_APP/data/recipes.json'
+        )
         const data = await response.json()
         data?.recipes.sort((a, b) => {
           return new Date(b.created_at) - new Date(a.created_at)
