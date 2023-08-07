@@ -13,7 +13,7 @@ import 'bootstrap/dist/js/bootstrap.min.js'
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
   <React.StrictMode>
-    <Router>
+    <Router basename="/Recipe_APP">
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
