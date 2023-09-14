@@ -28,7 +28,7 @@ export default function SearchBar({
 
   return (
     <div className="row">
-      <div className="col-8 m-auto">
+      <div className="col-12 col-lg-8 m-auto">
         <div ref={ref} className="search-bar">
           <input
             type="text"

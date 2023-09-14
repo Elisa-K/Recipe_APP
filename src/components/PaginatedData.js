@@ -50,7 +50,7 @@ export default function PaginatedData({ data, itemsPerPage }) {
     <div className="row">
       {currentData &&
         currentData.map((recipe) => (
-          <div className="col-4 p-4" key={recipe.id}>
+          <div className="col-xs-12 col-sm-6 col-lg-4 p-4" key={recipe.id}>
             <Card recipe={recipe} />
           </div>
         ))}
