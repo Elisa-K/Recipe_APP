@@ -100,8 +100,8 @@ export default function Search() {
         showSuggestions={showSuggestions}
         onClickOutside={() => setShowSuggestions(false)}
       />
-      <div className="row border p-2 m-3">
-        <div className="filter-box col-6">
+      <div className="row border p-2 m-1 m-lg-3">
+        <div className="filter-box col-12 col-lg-6">
           <span className="d-block fw-bold">Filtrer par :</span>
           <FilterCheckbox
             value="entree"
@@ -119,7 +119,7 @@ export default function Search() {
             onChange={filterHandler}
           />
         </div>
-        <div className="sort-box col-6">
+        <div className="sort-box col-12 col-lg-6">
           <span className="fw-bold">Trier par :</span>
           <select
             className="form-select"

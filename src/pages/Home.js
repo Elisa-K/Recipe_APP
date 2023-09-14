@@ -17,7 +17,7 @@ export default function Home() {
         <div className="row">
           {recipes &&
             recipes.slice(0, 10).map((recipe) => (
-              <div className="col-4 p-4" key={recipe.id}>
+              <div className="col-xs-12 col-sm-6 col-lg-4 p-4" key={recipe.id}>
                 <Card recipe={recipe} />
               </div>
             ))}
